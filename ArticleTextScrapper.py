@@ -1,7 +1,7 @@
 
 # get the text from the links in nasaLinks.md
 # each link should be printed in a new file
-from bs4 import BeautifulSoup	
+import bs4 as BeautifulSoup	
 import httplib2
 http=httplib2.Http()
 with open ('nasaLinks.md', 'r') as a:
@@ -9,7 +9,5 @@ with open ('nasaLinks.md', 'r') as a:
         with open('fineTuningData.jsonl', 'a+') as f:
             status,response=http.request(line)
             soup=BeautifulSoup(response, 'html.parser')
-            f.write("{\"prompt\":\"\",\"completion\":\"")
             for p in soup.find_all('p'):
-                f.write(p.text)
-            f.write("\"}\n")
+                f.write("{\"prompt\":\"\",\"completion\":\""+p.text+"\"}\n")
