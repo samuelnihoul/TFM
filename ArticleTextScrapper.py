@@ -4,7 +4,7 @@
 from bs4 import BeautifulSoup	
 import httplib2
 http=httplib2.Http()
-with open ('nasaLinks.md', 'r') as a:
+with open ('GreenPeace/links.md', 'r') as a:
     for line in a:
         with open('fineTuningData.jsonl', 'a+') as f:
             status,response=http.request(line)
