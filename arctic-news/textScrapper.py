@@ -1,0 +1,1 @@
+#Scrap the text from the articles using Selenium and BeautifulSoup.
