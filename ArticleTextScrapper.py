@@ -1,6 +1,4 @@
 
-# get the text from the links in nasaLinks.md
-# each link should be printed in a new file
 from bs4 import BeautifulSoup	
 import httplib2
 http=httplib2.Http()
