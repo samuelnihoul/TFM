@@ -1,4 +1,3 @@
-#Scrap the text from the articles using Selenium and BeautifulSoup.
 from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 600))
 display.start()
@@ -12,13 +11,12 @@ driver=webdriver.Chrome(service=s)
 
 import httplib2
 http=httplib2.Http()
-for year in range(2020,2023):
-    with open('data2.jsonl', 'a+') as f:
-        driver.get(f'https://arctic-news.blogspot.com/{year}/')
-        soup=BeautifulSoup(driver.page_source, 'html.parser')
-        f.write("{\"prompt\":\"\",\"completion\":\"")
-        for p in soup.find_all('div'):
+with open ('GreenPeace/links.md', 'r') as a:
+    for line in a:
+        with open('data2.jsonl', 'a+') as f:
+            driver.get(line)
+            soup=BeautifulSoup(driver.page_source, 'html.parser')
             f.write("{\"prompt\":\"\",\"completion\":\"")
-            f.write(p.text)
+            for p in soup.find_all('p'):
+                f.write(p.text)
             f.write("\"}\n")
-        f.close()
