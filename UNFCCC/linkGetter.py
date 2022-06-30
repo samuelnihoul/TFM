@@ -13,7 +13,7 @@ s=Service("/usr/bin/chromedriver")
 driver=webdriver.Chrome(service=s)
 
 http=httplib2.Http()
-for year in range(2023,2023):
+for year in range(2022,2023):
     driver.get("https://unfccc.int/news?field_page_main_text_body_value="+str(year))
     soup = BeautifulSoup(driver.page_source,'html')
     with open ('UNFCCC/links.md', 'a+') as f:

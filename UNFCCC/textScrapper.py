@@ -11,8 +11,8 @@ driver=webdriver.Chrome(service=s)
 
 import httplib2
 http=httplib2.Http()
-with open ('GreenPeace/links.md', 'r') as a:
-    for line in a:
+with open ('UNFCCC/links.md', 'r') as a:
+    for line in a.readlines()[51:]:
         with open('data2.jsonl', 'a+') as f:
             driver.get(line)
             soup=BeautifulSoup(driver.page_source, 'html.parser')
