@@ -20,3 +20,4 @@ with open ('GreenPeace/links.md', 'r') as a:
             for p in soup.find_all('p'):
                 f.write(p.text.replace('\"','\uff02'))
             f.write("\"}\n")
+            f.close()

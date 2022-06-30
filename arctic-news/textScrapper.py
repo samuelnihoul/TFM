@@ -16,7 +16,6 @@ for year in range(2020,2023):
     with open('data2.jsonl', 'a+') as f:
         driver.get(f'https://arctic-news.blogspot.com/{year}/')
         soup=BeautifulSoup(driver.page_source, 'html.parser')
-        f.write("{\"prompt\":\"\",\"completion\":\"")
         for p in soup.find_all('div'):
             f.write("{\"prompt\":\"\",\"completion\":\"")
             f.write(p.text.replace('\"','\uff02'))

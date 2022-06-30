@@ -19,5 +19,5 @@ with open ('UNFCCC/links.md', 'r') as a:
             f.write("{\"prompt\":\"\",\"completion\":\"")
             for p in soup.find_all('p'):
                 f.write(p.text.replace('\"','\uff02'))
-                
             f.write("\"}\n")
+            f.close()
