@@ -18,5 +18,6 @@ with open ('UNFCCC/links.md', 'r') as a:
             soup=BeautifulSoup(driver.page_source, 'html.parser')
             f.write("{\"prompt\":\"\",\"completion\":\"")
             for p in soup.find_all('p'):
-                f.write(p.text)
+                f.write(p.text.replace('\"','\uff02'))
+                
             f.write("\"}\n")

@@ -19,6 +19,6 @@ for year in range(2020,2023):
         f.write("{\"prompt\":\"\",\"completion\":\"")
         for p in soup.find_all('div'):
             f.write("{\"prompt\":\"\",\"completion\":\"")
-            f.write(p.text)
+            f.write(p.text.replace('\"','\uff02'))
             f.write("\"}\n")
         f.close()
